@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>{% include head.html %}</head>
+<body>
+
+	{% include nav.html %}
+	<div class="container cate">
+
+	{% for post in  site.posts %}
+	    {% if post.categories contains page.categories %}
+		<article class="article-item-link" title="{{ post.title }}{{ post.description }}">
+			<a class="list-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+			<time>{{ post.date | date_to_string }}</time>
+		</article>
+		{% endif %}
+	{% endfor %}
+
+	</div>
+	
+	{% include foot.html %}
+
+</body>
+
+<script type="text/javascript">
+	document.querySelector('.search-input').addEventListener('keyup',function(e){
+		var article = document.getElementsByClassName('article-item-link');
+		for (var i = 0; i < article.length; i++){
+			if( article[i].title.toLowerCase().indexOf(this.value.toLowerCase()) > -1 ) {
+				article[i].closest('article').style.display = '';
+			} else {
+				article[i].closest('article').style.display = 'none';
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+{% include head.html %}
+</head>
+<body>
+{% include nav.html %}
+
+	<div class="container post">
+		<aside></aside>
+		<article>
+			{{content}}
+		</article>
+
+	</div>
+	
+{% include foot.html %}
+</body>
+
+
+<script type="text/javascript">
+	window.onload = function(){		
+		let aside = document.querySelector('aside');
+		//Nodelist
+		let h3 = document.querySelectorAll('h3');
+		if(h3.length==0){aside.style.display = 'none';}
+		let menu = '';
+		h3.forEach(function(ele,i){
+			menu += `<a href="#${ele.innerHTML}">${ele.innerHTML}</a>`
+		});
+		aside.innerHTML = aside.innerHTML+menu;
+	}
+
+</script>
+
+</html>

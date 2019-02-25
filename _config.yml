@@ -1,0 +1,22 @@
+#site
+title: 睿子
+email: feerung@gmail.com
+author: 睿子
+keywords: 睿子,睿子的网络日志,睿子个人博客,睿子博客
+description: 睿子个人博客,好记性不如敲烂键盘,个人日志记录,睿子博客
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "ruizi.xyz" # the base hostname & protocol for your site, e.g. http://example.com
+copyright: 睿子的博客
+
+# Build settings
+markdown: kramdown
+
+#page
+paginate: 18
+
+#plugins
+plugins:
+  - jekyll-paginate #gem install jekyll-paginate
+
+# url style
+permalink: /article/:title.html

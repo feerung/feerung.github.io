@@ -1,0 +1,17 @@
+.DS_Store
+
+_site
+.sass-cache
+.jekyll-metadata
+.git
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# IDE Files
+/nbproject/
+.idea/*

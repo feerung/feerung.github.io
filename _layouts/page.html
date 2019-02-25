@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+{% include head.html %}
+</head>
+<body>
+{% include nav.html %}
+
+	<div class="container post">
+
+		<article>
+			<h2>{{ page.title }}</h2>
+			{{content}}
+		</article>
+
+	</div>
+
+
+{% include foot.html %}
+</body>
+
+</html>

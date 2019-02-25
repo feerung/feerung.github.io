@@ -1,0 +1,15 @@
+<header>
+	<label id="btn-bar" for="btn-barinp"><span></span><span></span><span></span></label>
+	<input type="checkbox" id="btn-barinp">
+	<div class="logo"><a href="{{ '/' }}" title="{{ site.title }}">{{ site.title }}</a></div>
+	<input class="search-input" type="text" placeholder="balala魔法，搜" />
+	<nav>
+		{% for category in  site.categories %}
+		<a href="/categories/{{ category[0] }}" title="{{ category[0] }}">{{ category[0] }}</a>
+		{% endfor %}
+		{% for olink in site.data.links %}
+		<a href="{{ olink.url }}" title="{{ olink.name }}">{{ olink.name }}</a>
+		{% endfor %}
+	</nav>
+	
+</header>
