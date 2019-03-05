@@ -54,6 +54,9 @@ if(window.location.pathname.indexOf('.html') > -1){
 		document.getElementById("top").addEventListener('click', function(){
 			document.querySelector('aside').style.display=='none' ? document.querySelector('aside').style.display='block' : document.querySelector('aside').style.display='none';
 		})
+		document.querySelector('aside').addEventListener('click', function(){
+			this.style.display='none';
+		})
 
 
 
@@ -78,34 +81,31 @@ if(window.location.pathname.indexOf('.html') > -1){
 
 	}
 
-
-
-	// 点击复制 节点
-	// const jmnodes = document.querySelector("jmnodes");
-	// console.log(jmnodes)
-	// jmnodes.addEventListener('click', function(e){
-	// 	console.log(e.target)
-	// 	document.execCommand("copy");
-	// })
-
-
-
-	//相邻元素
-	// document.querySelectorAll('h3').forEach(function(ele,i){
-	// 	ele.nextElementSibling.style.height = '0'
-	// 	ele.nextElementSibling.style.overflowX = 'auto'
-	// 	ele.addEventListener('click', function(){
-	// 		if(this.nextElementSibling.style.height=='0px'){
-	// 			this.nextElementSibling.style.height = 'auto'
-	// 		}else{
-	// 			this.nextElementSibling.style.height = '0'
-	// 		}
-	// 	})
-	// });
-
-
-
 }
+
+
+
+
+//public
+if(localStorage.getItem('switch-style')){
+	document.querySelector('body').style.backgroundColor = document.querySelector('header').style.backgroundColor = localStorage.getItem('switch-style')
+	document.querySelector('#switch-style').innerHTML = localStorage.getItem('switch-text')
+}
+document.querySelector('#switch-style').addEventListener('click', function(){
+	if(this.innerHTML == '白'){
+		document.querySelector('body').style.backgroundColor = '#061F2F'
+		document.querySelector('header').style.backgroundColor = '#061F2F'
+		this.innerHTML = '晚'
+		localStorage.setItem('switch-style', '#061F2F')
+		localStorage.setItem('switch-text', '晚')
+	}else{
+		document.querySelector('body').style.backgroundColor = '#36465d'
+		document.querySelector('header').style.backgroundColor = '#36465d'
+		this.innerHTML = '白'
+		localStorage.setItem('switch-style', '#36465d')
+		localStorage.setItem('switch-text', '白')
+	}
+})
 
 
 

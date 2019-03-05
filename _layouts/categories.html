@@ -4,13 +4,14 @@
 <body>
 
 	{% include nav.html %}
-	<div class="container cate">
+	<div class="container index cate">
 
 	{% for post in  site.posts %}
 	    {% if post.categories contains page.categories %}
 		<article class="article-item-link" title="{{ post.title }}{{ post.description }}">
-			<a class="list-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <i></i>
 			<time>{{ post.date | date_to_string }}</time>
+            <a class="list-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 		</article>
 		{% endif %}
 	{% endfor %}
