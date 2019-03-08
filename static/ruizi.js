@@ -36,7 +36,7 @@ for(let a of document.querySelectorAll('nav a')){
 	}
 }
 // 文档页操作
-if(window.location.pathname.indexOf('.html') > -1){
+if(window.location.pathname.substr(-4) == 'html'){
 
 	for(let a of document.querySelectorAll('aside a')){
 		if(window.location.pathname.indexOf(a.getAttribute('href')) > -1){
