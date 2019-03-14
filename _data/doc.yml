@@ -1,0 +1,5 @@
+- name: mysql#开始#index
+- name: mysql#安装#install
+- name: mysql#查询select#select
+
+

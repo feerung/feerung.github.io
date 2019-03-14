@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>{% include head.html %}</head>
+<body>
+	{% include nav.html %}
+		<div class="theme-container">
+
+			<div class="sidebar-button">
+				<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon">
+					<path fill="#f92672" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
+				</svg>
+			</div>
+
+			<div class="sidebar-mask"></div>
+			<div class="sidebar">
+				<ul class="sidebar-links">
+				{% assign title = page.title %}
+
+				{% for link in site.data.doc %}
+					{% assign words = link.name | split:'#' %}
+					{% assign doc_title = words | first %}
+
+					{% if doc_title == title %}
+					<li><a href="/doc/{{ words[0] }}/{{ words[2] }}.html" class="sidebar-link">{{ words[1] }}</a></li>
+					{% endif %}
+
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="content">
+				{{content}}
+			</div>
+		</div>
+	{% include foot.html %}
+</body>
+<script>
+	document.querySelector('.sidebar-button').addEventListener('click', function(){
+		if(document.querySelector('.theme-container').getAttribute('class').substr(-12) == 'sidebar-open'){
+			document.querySelector('.theme-container').setAttribute('class', 'theme-container');
+		}else{
+			document.querySelector('.theme-container').setAttribute('class', 'theme-container sidebar-open');
+		}
+	})
+	document.querySelector('.sidebar-mask').addEventListener('click', function(){
+		document.querySelector('.theme-container').setAttribute('class', 'theme-container');
+	})
+
+
+	document.querySelectorAll('.sidebar-link').forEach(function(ele, i){
+		if(ele.getAttribute('href').split('.')[0] == window.location.pathname.split('.')[0]){
+			ele.setAttribute('class', 'sidebar-link active')
+		}
+	})
+
+	document.getElementById("top").addEventListener('click', function(){
+		window.scrollTo(0,0);
+	})
+
+
+</script>
+</html>

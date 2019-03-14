@@ -1,5 +1,13 @@
 - name: '|'
   url: javascript:;
 
+
+
+- name: mysql
+  url : /doc/mysql
+
+
+
+
 - name: readme
   url: /page/readme

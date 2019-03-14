@@ -7,7 +7,7 @@
 {% include nav.html %}
 
 	<div class="container post">
-		<aside></aside>
+		<aside class="postbar"></aside>
 		<article>
 			{{content}}
 		</article>
@@ -30,6 +30,47 @@
 		});
 		aside.innerHTML = aside.innerHTML+menu;
 	}
+
+
+
+	if (/Mobi|Android/i.test(navigator.userAgent)){
+
+		setTimeout(function(){
+			document.querySelector('.postbar').style.display = 'none';
+		},200)
+		document.getElementById("top").addEventListener('click', function(){
+			document.querySelector('.postbar').style.display=='none' ? document.querySelector('.postbar').style.display='block' : document.querySelector('.postbar').style.display='none';
+		})
+
+		document.querySelector('.postbar').addEventListener('click', function(){
+			this.style.display='none';
+		})
+	}
+
+
+	// for(let a of document.querySelectorAll('.postbar a')){
+	// 	console.log(a)
+	// 	if(window.location.pathname.indexOf(a.getAttribute('href')) > -1){
+	// 		a.style.color = '#f92672';
+	// 	}
+	// }
+
+		// for(let a of document.querySelectorAll('.postbar a')){
+		// 	if(window.location.pathname.indexOf(a.getAttribute('href')) > -1){
+		// 		a.style.color = '#f92672';
+		// 		let h3 = document.querySelectorAll('h3');
+		// 			h3.forEach(function(ele,i){
+		// 				var span = document.createElement("a");
+		// 					span.innerHTML = ele.innerHTML;
+		// 					span.setAttribute('class','itema');
+		// 					span.href = '#'+ele.innerHTML;
+		// 					a.parentNode.appendChild(span);
+		// 			});
+		// 	}
+		// }
+
+
+
 
 </script>
 

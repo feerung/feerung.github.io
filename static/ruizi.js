@@ -35,58 +35,19 @@ for(let a of document.querySelectorAll('nav a')){
 		a.style.color = '#f92672';
 	}
 }
-// 文档页操作
-if(window.location.pathname.substr(-4) == 'html'){
-
-	for(let a of document.querySelectorAll('aside a')){
-		if(window.location.pathname.indexOf(a.getAttribute('href')) > -1){
-			a.style.color = '#f92672';
-		}
-	}
-
-
-	//是否是移动端
-	if (/Mobi|Android/i.test(navigator.userAgent)) {
-		setTimeout(function(){
-			document.querySelector('aside').style.display = 'none';
-		},200)
-
-		document.getElementById("top").addEventListener('click', function(){
-			document.querySelector('aside').style.display=='none' ? document.querySelector('aside').style.display='block' : document.querySelector('aside').style.display='none';
-		})
-		document.querySelector('aside').addEventListener('click', function(){
-			this.style.display='none';
-		})
 
 
 
-	}else{
-
-		for(let a of document.querySelectorAll('aside a')){
-			if(window.location.pathname.indexOf(a.getAttribute('href')) > -1){
-				a.style.color = '#f92672';
-				let h3 = document.querySelectorAll('h3');
-					h3.forEach(function(ele,i){
-						var span = document.createElement("a");
-							span.innerHTML = ele.innerHTML;
-							span.setAttribute('class','itema');
-							span.href = '#'+ele.innerHTML;
-							a.parentNode.appendChild(span);
-					});
-			}
-		}
-		document.getElementById("top").addEventListener('click', function(){
-			window.scrollTo(0,0);
-		})
-
-	}
-
+//非移动端
+if (!/Mobi|Android/i.test(navigator.userAgent)){
+	document.getElementById("top").addEventListener('click', function(){
+		window.scrollTo(0,0);
+	})
 }
 
 
 
-
-//public
+//public day night
 if(localStorage.getItem('switch-style')){
 	document.querySelector('body').style.backgroundColor = document.querySelector('header').style.backgroundColor = localStorage.getItem('switch-style')
 	document.querySelector('#switch-style').innerHTML = localStorage.getItem('switch-text')
@@ -106,8 +67,3 @@ document.querySelector('#switch-style').addEventListener('click', function(){
 		localStorage.setItem('switch-text', '白')
 	}
 })
-
-
-
-
-
